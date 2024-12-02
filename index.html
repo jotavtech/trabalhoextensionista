@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concessionária XYZ</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- AOS Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Atlas Concessionária</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#carros">Carros</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero" data-aos="fade-up">
+    <h2>Bem-vindo à Atlas Concessionária</h2>
+    <p>Aqui você encontra os melhores carros para todas as suas necessidades!</p>
+    <a href="#carros" class="btn">Veja nossos carros</a>
+  </section>
+
+  <section id="sobre" class="sobre" data-aos="fade-up">
+    <h2>Sobre a Concessionária</h2>
+    <p>Somos uma concessionária com mais de 20 anos de experiência oferecendo os melhores veículos para você.</p>
+  </section>
+
+  <section id="carros" class="carros" data-aos="fade-up">
+    <h2>Nossos Carros</h2>
+    <div class="carros-gallery">
+      <div class="car">
+        <img src="sedan.jpg" alt="Carro 1">
+        <h3>Modelo A</h3>
+        <p>A partir de R$ 50.000</p>
+      </div>
+      <div class="car">
+        <img src="sedan.jpg" alt="Carro 2">
+        <h3>Modelo B</h3>
+        <p>A partir de R$ 60.000</p>
+      </div>
+      <div class="car">
+        <img src="sedan.jpg" alt="Carro 3">
+        <h3>Modelo C</h3>
+        <p>A partir de R$ 70.000</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato" data-aos="fade-up">
+    <h2>Contato</h2>
+    <p>Preencha o formulário abaixo para mais informações:</p>
+    <form id="form-contato">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu e-mail" required>
+      <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="mensagem-sucesso" class="sucesso" style="display: none;">
+      <p>Obrigado pelo seu contato! Em breve, entraremos em contato.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Atlas Concessionária | Todos os direitos reservados</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Inicializa o AOS (Animate On Scroll)
+    AOS.init();
+
+    // Função para mostrar mensagem de sucesso após envio de formulário
+    document.getElementById("form-contato").addEventListener("submit", function(event) {
+      event.preventDefault(); // Previne o envio do formulário
+
+      // Animação suave de fade-in da mensagem de sucesso
+      const sucessoMensagem = document.getElementById("mensagem-sucesso");
+      sucessoMensagem.style.display = "block";
+      sucessoMensagem.classList.add("sucesso");
+      
+      // Simula um atraso antes de limpar o formulário
+      setTimeout(function() {
+        // Limpa os campos do formulário
+        document.getElementById("nome").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("mensagem").value = "";
+        
+        // Anima novamente para esconder a mensagem de sucesso após 5 segundos
+        setTimeout(function() {
+          sucessoMensagem.style.display = "none";
+        }, 5000);
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
